@@ -167,6 +167,13 @@ public:
         memcpy(baseUUID, source.baseUUID, LENGTH_OF_LONG_UUID);
     }
 
+    const UUID& operator=(const UUID &source) {
+        type      = source.type;
+        shortUUID = source.shortUUID;
+        memcpy(baseUUID, source.baseUUID, LENGTH_OF_LONG_UUID);
+        return *this;
+    }
+
     UUID(void) : type(UUID_TYPE_SHORT), shortUUID(BLE_UUID_UNKNOWN) {
         /* empty */
     }
